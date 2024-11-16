@@ -11,12 +11,12 @@
 </template>
 
 <script lang="ts" setup>
-import { useCounter } from "../composables/useCounter";
+import { useCounter } from '../composables/useCounter';
 
-//interface Props {
-//  value: number;
-//}
-// const props = defineProps<Props>();
+interface Props {
+  value: number;
+}
+const props = defineProps<Props>();
 
 const { counter, squareCounter } = useCounter(10);
 

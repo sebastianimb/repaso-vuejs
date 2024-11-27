@@ -16,7 +16,6 @@ export const usePokemonGame = () => {
 
   const getPokemons = async (): Promise<Pokemon[]> => {
     const response = await pokemonApi.get<PokemonListResponse>('/?limit=151');
-
     const pokemonsArray = response.data.results.map((pokemon) => {
       const urlParts = pokemon.url.split('/');
       const id = urlParts.at(-2) ?? 0;
@@ -54,8 +53,6 @@ export const usePokemonGame = () => {
   onMounted(async () => {
     pokemons.value = await getPokemons();
     getNextRound();
-
-    console.log(pokemonOptions.value);
   });
 
   return {
